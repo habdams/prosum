@@ -1,13 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Poppins, Barlow } from "@next/font/google";
-import clsx from "clsx";
+import classNames from "classnames/bind";
+
 
 import sumImg from "../public/images/sumImg.svg";
 
 import styles from "../styles/Home.module.css";
 
-const barlow = Barlow({ weight: "400", subsets: ["latin"] });
+const c = classNames.bind(styles);
 const poppins = Poppins({ weight: "500" });
 
 export default function Home() {
