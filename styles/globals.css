@@ -1,7 +1,7 @@
-:root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  /* --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+@import "@radix-ui/colors/blue.css";
+@import "@radix-ui/colors/green.css";
+@import "@radix-ui/colors/red.css";
+@import "@radix-ui/colors/gray.css";
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace; */
 
