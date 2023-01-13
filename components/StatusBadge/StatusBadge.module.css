@@ -1,0 +1,23 @@
+/* intentional space */
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.status {
+  text-transform: capitalize;
+}
+
+.terminated {
+  color: var(--red9);
+}
+
+.completed {
+  color: var(--green9);
+}
+
+.ongoing {
+  color: var(--blue9);
+}
