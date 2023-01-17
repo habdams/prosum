@@ -8,8 +8,7 @@
         "name": "Project One",
         "deadline": "2022-12-31",
         "startDate": "2022-01-01",
-        "completed": false,
-        "terminated": false,
+        "status": "ongoing",
         "summary": "The project is about creating a mobile application for a small business. The goal of the project is to increase online sales and attract more customers.",
         "tasks": [
           {
@@ -35,8 +34,7 @@
         "name": "Project One",
         "deadline": "2022-12-31",
         "startDate": "2022-01-01",
-        "completed": false,
-        "terminated": false,
+        "status": "ongoing",
         "summary": "The project is about creating a mobile application for a small business. The goal of the project is to increase online sales and attract more customers.",
         "tasks": [
           {
@@ -62,8 +60,7 @@
         "name": "Project One",
         "deadline": "2023-02-24 12:34:32.000",
         "startDate": "2022-12-31 23:59:59.999",
-        "completed": false,
-        "terminated": false,
+        "status": "completed",
         "summary": "The project is about creating a website for a local non-profit organization. The goal of the project is to increase online donations and awareness.",
         "tasks": [
           {
@@ -83,8 +80,7 @@
         "name": "Project Two",
         "deadline": "2023-06-30",
         "startDate": "2022-07-01",
-        "completed": false,
-        "terminated": false,
+        "status": "ongoing",
         "summary": "The project is about developing a software application for a small business. The goal of the project is to automate repetitive tasks and increase productivity.",
         "tasks": [
           {
@@ -104,8 +100,7 @@
         "name": "Project Three",
         "deadline": "2023-12-31",
         "startDate": "2022-01-01",
-        "completed": false,
-        "terminated": false,
+        "status": "terminated",
         "summary": "The project is about creating an e-commerce platform for a startup company. The goal of the project is to increase online sales and expand to new markets.",
         "tasks": [
           {
@@ -125,8 +120,7 @@
         "name": "Project Four",
         "deadline": "2022-12-31",
         "startDate": "2021-01-01",
-        "completed": false,
-        "terminated": false,
+        "status": "completed",
         "summary": "The project is about designing a logo and branding materials for a new restaurant. The goal of the project is to create a unique and recognizable brand identity.",
         "tasks": [
           {
@@ -146,8 +140,7 @@
         "name": "Project Five",
         "deadline": "2022-06-30",
         "startDate": "2021-07-01",
-        "completed": false,
-        "terminated": false,
+        "status": "ongoing",
         "summary": "The project is about creating a marketing campaign for a new product launch. The goal of the project is to increase brand awareness and drive sales.",
         "tasks": [
           {
