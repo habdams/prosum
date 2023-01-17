@@ -13,14 +13,6 @@ const c = classNames.bind(styles);
 export default function Projects() {
   const user3 = data[2];
 
-  function getProjectStatus(status: any) {
-    const ProjectStatus = {
-      completed: "completed",
-      terminated: "terminated",
-      default: "ongoing",
-    };
-  }
-
   return (
     <section className={c("main")}>
       <section className={c("header")}>
@@ -37,7 +29,7 @@ export default function Projects() {
             title={project.name}
             startDate={project.startDate}
             endDate={project.deadline}
-            status="ongoing"
+            status={project.status}
             link="www.cpylink.com"
             key={"#" + project.id + project.name}
           />
