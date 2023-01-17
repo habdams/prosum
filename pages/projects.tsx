@@ -1,5 +1,6 @@
-import { Plus } from "phosphor-react";
+import { Plus, XCircle } from "phosphor-react";
 import classNames from "classnames/bind";
+import * as Dialog from "@radix-ui/react-dialog";
 
 import { Button } from "../components/Button/Button";
 import { ProjectItem } from "../components/ProjectItem/ProjectItem";
@@ -17,10 +18,28 @@ export default function Projects() {
     <section className={c("main")}>
       <section className={c("header")}>
         <h2>Projects</h2>
-        <Button>
-          <Plus />
-          New project
-        </Button>
+        <Dialog.Root>
+          <Dialog.Trigger asChild>
+            <Button>
+              <Plus />
+              New project
+            </Button>
+          </Dialog.Trigger>
+          <Dialog.Portal>
+            <Dialog.Overlay />
+            <Dialog.Content>
+              <Dialog.Title asChild>
+                <h2>Add new project</h2>
+              </Dialog.Title>
+              <Dialog.Description asChild>
+                <p>we are adding new projects</p>
+                <Dialog.Close>
+                  <XCircle size={32} />
+                </Dialog.Close>
+              </Dialog.Description>
+            </Dialog.Content>
+          </Dialog.Portal>
+        </Dialog.Root>
       </section>
 
       <section className={c("projects")}>
