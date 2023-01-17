@@ -8,7 +8,7 @@ import styles from "./StatusBadge.module.css";
 const c = classNames.bind(styles);
 
 type StatusBadgeProp = {
-  status: ProjectStatus;
+  status: ProjectStatus | string;
 };
 
 export function StatusBadge({ status }: StatusBadgeProp) {

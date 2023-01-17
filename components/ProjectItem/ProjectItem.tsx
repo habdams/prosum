@@ -15,7 +15,7 @@ export type ProjectItemProps = {
   title: string;
   startDate: number | string | Date;
   endDate: number | string;
-  status: ProjectStatus;
+  status: ProjectStatus | string;
   link?: string;
 };
 
