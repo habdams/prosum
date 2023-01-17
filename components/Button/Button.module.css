@@ -1,0 +1,14 @@
+.button {
+  color: var(--gray1);
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  background: var(--gray12);
+  border-radius: 5px;
+  padding: 10px;
+  height: max-content;
+}
+
+.button:hover {
+  background: var(--gray11);
+}

@@ -1,0 +1,19 @@
+.copy {
+  width: max-content;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  color: var(--blue9);
+}
+
+.success {
+  color: var(--green6);
+}
+
+.error {
+  color: var(--red6);
+}
+
+.copy:hover {
+  color: var(--blue10);
+}

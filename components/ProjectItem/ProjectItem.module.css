@@ -1,0 +1,32 @@
+.projectItem {
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 24px;
+  border: 2px solid var(--gray12);
+  border-radius: 10px;
+  padding: 45px 0 20px 20px;
+  background: #fffefa;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.date {
+  display: flex;
+  gap: 5px;
+  color: #6d6b6b;
+}
+
+.icon {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  user-select: none;
+}
