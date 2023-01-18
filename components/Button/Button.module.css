@@ -12,3 +12,13 @@
 .button:hover {
   background: var(--gray11);
 }
+
+.secondary {
+  color: var(--gray12);
+  background-color: var(--gray1);
+  border: 1px solid var(--gray12);
+}
+
+.secondary:hover {
+  background: var(--gray2);
+}
