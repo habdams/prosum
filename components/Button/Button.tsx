@@ -9,6 +9,19 @@ type ButtonProp = {
   children: React.ReactNode;
 };
 
-export function Button({ children }: ButtonProp) {
-  return <button className={c("button")}>{children}</button>;
-}
+export const Button = React.forwardRef<
+  React.ElementRef<"button">,
+  React.ComponentPropsWithoutRef<"button">
+>(({ children, ...props }, ref) => {
+  return (
+    <button
+      {...props}
+      ref={ref}
+      className={c("button", { secondary: props.className })}
+    >
+      {children}
+    </button>
+  );
+});
+
+Button.displayName = "Button";

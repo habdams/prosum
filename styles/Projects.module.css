@@ -22,3 +22,85 @@
   grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
   gap: 2rem;
 }
+
+.dailogOverlay {
+  background: var(--blackA9);
+  position: fixed;
+  inset: 0;
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dialogContent {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  max-width: 450px;
+  max-height: 85vh;
+  padding: 25px;
+  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dialogHeading {
+  display: flex;
+  gap: 5px;
+  justify-content: flex-start;
+  align-items: baseline;
+  border-bottom: 1px var(--blackA9) solid;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.dialogClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form input {
+  height: 42px;
+  padding: 10px;
+  border-radius: 5px;
+  background: var(--blackA2);
+}
+
+.nameG {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nameG input {
+  width: 400px;
+}
+
+.dateG {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dateG div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dateG input {
+  width: 180px;
+}
+
+.buttonG {
+  display: flex;
+  justify-content: space-between;
+}
