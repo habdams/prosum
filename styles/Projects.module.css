@@ -104,3 +104,45 @@
   display: flex;
   justify-content: space-between;
 }
+
+.details {
+  max-width: 600px;
+  padding-top: 60px;
+}
+
+.projectHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 60px;
+}
+
+.projectHeader .id {
+  color: var(--gray8);
+}
+
+.projectHeader h1 {
+  font-size: 3rem;
+}
+
+.projectDates {
+  display: flex;
+  gap: 10px;
+  color: var(--gray12);
+}
+
+.projectDates p {
+  font-weight: 500;
+}
+
+.projectDates .dates {
+  margin-left: 5px;
+  font-weight: 400;
+}
+
+.projectTasks {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
