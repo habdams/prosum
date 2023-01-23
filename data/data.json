@@ -9,17 +9,17 @@
         "deadline": "2022-12-31",
         "startDate": "2022-01-01",
         "status": "ongoing",
-        "summary": "The project is about creating a mobile application for a small business. The goal of the project is to increase online sales and attract more customers.",
+        "description": "The project is about creating a mobile application for a small business. The goal of the project is to increase online sales and attract more customers.",
         "tasks": [
           {
             "id": 1,
-            "question": "What is the project about?",
-            "answer": "Milk and honey"
+            "summary": "What is the project about?",
+            "body": "Milk and honey"
           },
           {
             "id": 2,
-            "question": "What is the goal of the project?",
-            "answer": "To foster believes"
+            "summary": "What is the goal of the project?",
+            "body": "To foster believes"
           }
         ]
       }
@@ -35,17 +35,17 @@
         "deadline": "2022-12-31",
         "startDate": "2022-01-01",
         "status": "ongoing",
-        "summary": "The project is about creating a mobile application for a small business. The goal of the project is to increase online sales and attract more customers.",
+        "description": "The project is about creating a mobile application for a small business. The goal of the project is to increase online sales and attract more customers.",
         "tasks": [
           {
             "id": 1,
-            "question": "What is the project about?",
-            "answer": "Milk and honey"
+            "summary": "What is the project about?",
+            "body": "Milk and honey"
           },
           {
             "id": 2,
-            "question": "What is the goal of the project?",
-            "answer": "To foster believes"
+            "summary": "What is the goal of the project?",
+            "body": "To foster believes"
           }
         ]
       }
@@ -61,17 +61,17 @@
         "deadline": "2023-02-24 12:34:32.000",
         "startDate": "2022-12-31 23:59:59.999",
         "status": "completed",
-        "summary": "The project is about creating a website for a local non-profit organization. The goal of the project is to increase online donations and awareness.",
+        "description": "The project is about creating a website for a local non-profit organization. The goal of the project is to increase online donations and awareness.",
         "tasks": [
           {
             "id": 1,
-            "question": "What is the project about?",
-            "answer": "Creating a website for a non-profit organization"
+            "summary": "What is the project about?",
+            "body": "Creating a website for a non-profit organization"
           },
           {
             "id": 2,
-            "question": "What is the goal of the project?",
-            "answer": "To increase online donations and awareness"
+            "summary": "What is the goal of the project?",
+            "body": "To increase online donations and awareness"
           }
         ]
       },
@@ -81,17 +81,17 @@
         "deadline": "2023-06-30",
         "startDate": "2022-07-01",
         "status": "ongoing",
-        "summary": "The project is about developing a software application for a small business. The goal of the project is to automate repetitive tasks and increase productivity.",
+        "description": "The project is about developing a software application for a small business. The goal of the project is to automate repetitive tasks and increase productivity.",
         "tasks": [
           {
             "id": 1,
-            "question": "What is the project about?",
-            "answer": "Developing a software application for a small business"
+            "summary": "What is the project about?",
+            "body": "Developing a software application for a small business"
           },
           {
             "id": 2,
-            "question": "What is the goal of the project?",
-            "answer": "To automate repetitive tasks and increase productivity"
+            "summary": "What is the goal of the project?",
+            "body": "To automate repetitive tasks and increase productivity"
           }
         ]
       },
@@ -101,17 +101,17 @@
         "deadline": "2023-12-31",
         "startDate": "2022-01-01",
         "status": "terminated",
-        "summary": "The project is about creating an e-commerce platform for a startup company. The goal of the project is to increase online sales and expand to new markets.",
+        "description": "The project is about creating an e-commerce platform for a startup company. The goal of the project is to increase online sales and expand to new markets.",
         "tasks": [
           {
             "id": 1,
-            "question": "What is the project about?",
-            "answer": "Creating an e-commerce platform for a startup company"
+            "summary": "What is the project about?",
+            "body": "Creating an e-commerce platform for a startup company"
           },
           {
             "id": 2,
-            "question": "What is the goal of the project?",
-            "answer": "To increase online sales and expand to new markets"
+            "summary": "What is the goal of the project?",
+            "body": "To increase online sales and expand to new markets"
           }
         ]
       },
@@ -121,17 +121,22 @@
         "deadline": "2022-12-31",
         "startDate": "2021-01-01",
         "status": "completed",
-        "summary": "The project is about designing a logo and branding materials for a new restaurant. The goal of the project is to create a unique and recognizable brand identity.",
+        "description": "The project is about designing a logo and branding materials for a new restaurant. The goal of the project is to create a unique and recognizable brand identity.",
         "tasks": [
           {
             "id": 1,
-            "question": "What is the project about?",
-            "answer": "Designing a logo and branding materials for a new restaurant"
+            "summary": "What is the project about?",
+            "body": "Designing a logo and branding materials for a new restaurant"
           },
           {
             "id": 2,
-            "question": "What is the goal of the project?",
-            "answer": "To create a unique and recognizable brand identity"
+            "summary": "What is the goal of the project?",
+            "body": "To create a unique and recognizable brand identity"
+          },
+          {
+            "id": 3,
+            "summary": "Finally deployed",
+            "body": "To create a unique and recognizable brand identity"
           }
         ]
       },
@@ -141,17 +146,17 @@
         "deadline": "2022-06-30",
         "startDate": "2021-07-01",
         "status": "ongoing",
-        "summary": "The project is about creating a marketing campaign for a new product launch. The goal of the project is to increase brand awareness and drive sales.",
+        "description": "The project is about creating a marketing campaign for a new product launch. The goal of the project is to increase brand awareness and drive sales.",
         "tasks": [
           {
             "id": 1,
-            "question": "What is the project about?",
-            "answer": "Creating a marketing campaign for a new product launch"
+            "summary": "What is the project about?",
+            "body": "Creating a marketing campaign for a new product launch"
           },
           {
             "id": 2,
-            "question": "What is the goal of the project?",
-            "answer": "To increase brand awareness and drive sales"
+            "summary": "What is the goal of the project?",
+            "body": "To increase brand awareness and drive sales"
           }
         ]
       }
