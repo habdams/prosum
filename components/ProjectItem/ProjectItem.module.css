@@ -12,6 +12,11 @@
   position: relative;
 }
 
+.projectItem:hover {
+  box-shadow: 0px 5px 20px var(--gray12);
+  background: var(--blackA2);
+}
+
 .title {
   font-size: 2rem;
 }

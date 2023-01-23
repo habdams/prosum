@@ -1,15 +1,16 @@
 import React from "react";
+import Link from "next/link";
 import { Plus, XCircle, Trophy, Rectangle } from "phosphor-react";
 import classNames from "classnames/bind";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useForm } from "react-hook-form";
 
-import { Button } from "../components/Button/Button";
-import { ProjectItem } from "../components/ProjectItem/ProjectItem";
+import { Button } from "../../components/Button/Button";
+import { ProjectItem } from "../../components/ProjectItem/ProjectItem";
 
-import data from "../data/data.json";
+import data from "../../data/data.json";
 
-import styles from "../styles/Projects.module.css";
+import styles from "../../styles/Projects.module.css";
 
 const c = classNames.bind(styles);
 
@@ -99,14 +100,18 @@ export default function Projects() {
 
       <section className={c("projects")}>
         {user3.projects.map((project) => (
-          <ProjectItem
-            title={project.name}
-            startDate={project.startDate}
-            endDate={project.deadline}
-            status={project.status}
-            link="www.cpylink.com"
+          <Link
+            href={`projects/${project.id}`}
             key={"#" + project.id + project.name}
-          />
+          >
+            <ProjectItem
+              title={project.name}
+              startDate={project.startDate}
+              endDate={project.deadline}
+              status={project.status}
+              link="www.cpylink.com"
+            />
+          </Link>
         ))}
       </section>
     </section>
