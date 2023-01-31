@@ -6,7 +6,7 @@
     "id": { "regexp": "[0-9]{5}" },
     "name": { "regexp": "[A-Z][a-z]{5,10}" },
     "projects": {
-      "hasMany": "Projects"
+      "hasMany": "Tasks"
     }
   },
 
