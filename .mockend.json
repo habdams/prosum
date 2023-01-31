@@ -1,7 +1,7 @@
 {
   "User": {
     "_": {
-      "items": 25
+      "items": 10
     },
     "id": { "regexp": "[0-9]{5}" },
     "name": { "regexp": "[A-Z][a-z]{5,10}" },
@@ -12,7 +12,7 @@
 
   "Project": {
     "_": {
-      "items": 20
+      "items": 5
     },
 
     "id": { "regexp": "[0-9]{5}" },
