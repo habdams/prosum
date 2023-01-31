@@ -10,7 +10,7 @@
     }
   },
 
-  "Projects": {
+  "Project": {
     "_": {
       "items": 20
     },
@@ -40,7 +40,7 @@
     }
   },
 
-  "Tasks": {
+  "Task": {
     "_": {
       "items": 10
     },
