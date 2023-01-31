@@ -1,10 +1,10 @@
 {
-  "User":{
+  "User": {
     "_": {
       "items": 25
     },
-    "id": "[0-9]{5}",
-    "name": "[A-Z][a-z]{5,10}",
+    "id": { "regexp": "[0-9]{5}" },
+    "name": { "regexp": "[A-Z][a-z]{5,10}" },
     "projects": {
       "hasMany": "Tasks"
     }
@@ -12,26 +12,30 @@
 
   "Projects": {
     "_": {
-      "items" : 20
+      "items": 20
     },
 
-    "id": "[0-9]{5}",
-    "name": "[A-Z][a-z]{5,10}",
+    "id": { "regexp": "[0-9]{5}" },
+    "name": { "regexp": "[A-Z][a-z]{5,10}" },
     "deadline": {
-      "min": "2023-01-01T00:00:00Z",
-      "max": "2032-12-31T23:59:59Z"
+      "dateTime": {
+        "min": "2023-01-01T00:00:00Z",
+        "max": "2032-12-31T23:59:59Z"
+      }
     },
     "begin": {
-      "min": "2022-12-01T00:00:00Z",
-      "max": "2032-12-31T23:59:59Z"
+      "dateTime": {
+        "min": "2022-12-01T00:00:00Z",
+        "max": "2032-12-31T23:59:59Z"
+      }
     },
     "status": {
       "string": ["ongoing", "completed", "terminated"]
     },
     "description": {
-      "loremSentences": {"minLength": 100, "maxLength": 200}
+      "loremSentences": { "minLength": 100, "maxLength": 200 }
     },
-    "tasks":{
+    "tasks": {
       "belongsTo": "Projects"
     }
   },
@@ -40,12 +44,12 @@
     "_": {
       "items": 10
     },
-    "id": "[0-9]",
+    "id": { "regexp": "[0-9]" },
     "summary": {
-      "loremSentences": {"minLength": 30, "maxLength": 70}
+      "loremSentences": { "minLength": 30, "maxLength": 70 }
     },
     "body": {
-      "loremParagraphs": {"minLength": 200, "maxLength": 500}
+      "loremParagraphs": { "minLength": 200, "maxLength": 500 }
     }
   }
 }
