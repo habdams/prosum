@@ -6,7 +6,7 @@
     "id": { "regexp": "[0-9]{5}" },
     "name": { "regexp": "[A-Z][a-z]{5,10}" },
     "projects": {
-      "hasMany": "Tasks"
+      "hasMany": "Project"
     }
   },
 
@@ -36,7 +36,10 @@
       "loremSentences": { "minLength": 100, "maxLength": 200 }
     },
     "tasks": {
-      "belongsTo": "Projects"
+      "hasMany": "Task"
+    },
+    "user":{
+      "belongsTo": "User"
     }
   },
 
@@ -50,6 +53,9 @@
     },
     "body": {
       "loremParagraphs": { "minLength": 200, "maxLength": 500 }
-    }
+    },
+    "project":{
+      "belongsTo": "Project"
+      }
   }
 }
