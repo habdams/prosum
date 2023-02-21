@@ -1,14 +1,17 @@
 import React from "react";
 import Link from "next/link";
+import axios from "axios";
+import { useQuery } from "react-query";
 import { Plus, XCircle, Trophy, Rectangle } from "phosphor-react";
 import classNames from "classnames/bind";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useForm } from "react-hook-form";
 
 import { Button } from "../../components/Button/Button";
-import { ProjectItem } from "../../components/ProjectItem/ProjectItem";
-
-import data from "../../data/data.json";
+import {
+  ProjectItem,
+  ProjectItemProps,
+} from "../../components/ProjectItem/ProjectItem";
 
 import styles from "../../styles/Projects.module.css";
 
@@ -20,7 +23,17 @@ type ProjectFormData = {
   end: string;
 };
 
+const fetchProjects = async () => {
+  const res = await axios.get(
+    "https://mockend.com/habdams/prosum/projects?userID_eq=1"
+  );
+
+  return res.data;
+};
+
 export default function Projects() {
+  const { data, status } = useQuery("projects", fetchProjects);
+
   const [open, setOpen] = React.useState(false);
   const {
     register,
@@ -28,7 +41,6 @@ export default function Projects() {
     handleSubmit,
     formState: { errors },
   } = useForm<ProjectFormData>();
-  const user3 = data[2];
 
   const onSubmit = handleSubmit((data) => console.log(data));
 
@@ -99,15 +111,16 @@ export default function Projects() {
       </section>
 
       <section className={c("projects")}>
-        {user3.projects.map((project) => (
+        {data?.map((project: ProjectItemProps) => (
           <Link
             href={`projects/${project.id}`}
             key={"#" + project.id + project.name}
           >
             <ProjectItem
-              title={project.name}
-              startDate={project.startDate}
-              endDate={project.deadline}
+              id={project.id}
+              name={project.name}
+              begin={project.begin}
+              deadline={project.deadline}
               status={project.status}
               link="www.cpylink.com"
             />
