@@ -1,6 +1,5 @@
 .AccordionRoot {
   border-radius: 10px;
-  width: 425px;
   background-color: var(--gray12);
   box-shadow: 0 2px 10px var(--blackA4);
 }
