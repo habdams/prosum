@@ -1,42 +1,41 @@
 import React from "react";
 import Link from "next/link";
 import classNames from "classnames/bind";
+import axios from "axios";
+import { useQuery } from "react-query";
 import { Plus } from "phosphor-react";
 
-import Accordion from "../../components/Accordion/Accordion";
+import Accordion, { AccordionProp } from "../../components/Accordion/Accordion";
 import { Button } from "../../components/Button/Button";
 import Layout from "../../components/Layout/Layout";
 
-import data from "../../data/data.json";
 import styles from "../../styles/Projects.module.css";
 
 const c = classNames.bind(styles);
-const user3 = data[2].projects;
 
 type PathProp = {
   params: { id: string };
 };
 
-type ProjectProp = {
-  project: {
-    id: number;
-    name: string;
-    deadline: string;
-    startDate: string;
-    status: string;
-    description: string;
-    tasks: [];
-  };
-};
-
-export type TaskProp = {
+type ProjectPropType = {
   id: number;
-  summary: string;
-  body: string;
+  name: string;
+  deadline: string;
+  begin: string;
+  status: string;
+  description: string;
+  tasks: [];
 };
 
-export const getStaticPaths = () => {
-  const paths = user3.map((project) => {
+export type ProjectProp = {
+  project: ProjectPropType[];
+};
+
+export const getStaticPaths = async () => {
+  const res = await axios.get("https://mockend.com/habdams/prosum/projects");
+  const data = await res.data;
+
+  const paths = data.map((project: any) => {
     return {
       params: { id: project.id.toString() },
     };
@@ -48,50 +47,65 @@ export const getStaticPaths = () => {
   };
 };
 
-export const getStaticProps = (context: PathProp) => {
-  const id = Number(context.params.id);
+export const getStaticProps = async (context: PathProp) => {
+  const id = context.params.id;
+  const res = await axios.get(
+    `https://mockend.com/habdams/prosum/tasks?projectId_eq${id}`
+  );
+
+  const res2 = await axios.get(
+    `https://mockend.com/habdams/prosum/projects?id_eq=${id}`
+  );
+
+  const project = await res2.data;
+  const data = await res.data;
 
   return {
-    props: { project: user3[id - 1] },
+    props: { tasks: data, project: project },
   };
 };
 
-function Details({ project }: ProjectProp) {
+function Details({ tasks, project }: any) {
+  // const { data, status } = useQuery("projects", project);
+
   return (
     <section className={c("details")}>
       <header className={c("projectHeader")}>
         <Link href={"/projects"}> Go back to projects</Link>
-        <h1>
-          <span className={c("id")}>#{project.id}</span>
-          {project.name}
-        </h1>
+        {project.map((data: ProjectPropType, index: number) => (
+          <section key={`user-data+${index}`}>
+            <h1>
+              <span className={c("id")}>#{data?.id}</span>
+              {data?.name}
+            </h1>
 
-        <p>{project.description}</p>
-        <section className={c("projectDates")}>
-          <p>
-            Start:
-            <span className={c("dates")}>
-              {new Date(project.startDate).toLocaleString("en-US", {
-                dateStyle: "medium",
-              })}
-            </span>
-          </p>
+            <p>{data?.description}</p>
+            <section className={c("projectDates")}>
+              <p>
+                Start:
+                <span className={c("dates")}>
+                  {new Date(data?.begin).toLocaleString("en-US", {
+                    dateStyle: "medium",
+                  })}
+                </span>
+              </p>
 
-          <p>
-            Deadline:
-            <span className={c("dates")}>
-              {new Date(project.deadline).toLocaleString("en-US", {
-                dateStyle: "medium",
-              })}
-            </span>
-          </p>
-        </section>
+              <p>
+                Deadline:
+                <span className={c("dates")}>
+                  {new Date(data?.deadline).toLocaleString("en-US", {
+                    dateStyle: "medium",
+                  })}
+                </span>
+              </p>
+            </section>
+          </section>
+        ))}
       </header>
-
       <section className={c("projectTasksWrapper")}>
         <section className={c("projectTasks")}>
           <h2>
-            Task <span className="tasksLength">{project.tasks?.length} </span>
+            Task <span className="tasksLength">{tasks?.length} </span>
           </h2>
           <Button>
             <Plus />
@@ -100,7 +114,7 @@ function Details({ project }: ProjectProp) {
         </section>
 
         <section>
-          <Accordion tasks={project.tasks} />
+          <Accordion tasks={tasks} />
         </section>
       </section>
     </section>
