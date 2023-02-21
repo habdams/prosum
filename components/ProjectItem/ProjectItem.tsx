@@ -12,33 +12,34 @@ const c = classNames.bind(styles);
 export type ProjectStatus = "completed" | "ongoing" | "terminated";
 
 export type ProjectItemProps = {
-  title: string;
-  startDate: number | string | Date;
-  endDate: number | string;
+  id: number;
+  name: string;
+  begin: number | string | Date;
+  deadline: number | string;
   status: ProjectStatus | string;
   link?: string;
 };
 
 export function ProjectItem({
-  title,
-  startDate,
-  endDate,
+  name,
+  begin,
+  deadline,
   status,
   link,
 }: ProjectItemProps) {
   return (
     <section className={c("projectItem")}>
       <section className={c("")}>
-        <h3 className={c("title")}>{title}</h3>
+        <h3 className={c("title")}>{name}</h3>
         <div className={c("date")}>
           <p>
-            {new Date(startDate).toLocaleString("en-US", {
+            {new Date(begin).toLocaleString("en-US", {
               dateStyle: "medium",
             })}
           </p>
           <span> - </span>
           <p>
-            {new Date(endDate).toLocaleString("en-US", {
+            {new Date(deadline).toLocaleString("en-US", {
               dateStyle: "medium",
             })}
           </p>

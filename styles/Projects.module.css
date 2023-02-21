@@ -112,6 +112,7 @@
 .details {
   max-width: 600px;
   padding-top: 60px;
+  margin-bottom: 60px;
 }
 
 .projectHeader {
@@ -133,6 +134,7 @@
   display: flex;
   gap: 10px;
   color: var(--gray12);
+  margin-top: 1rem;
 }
 
 .projectDates p {

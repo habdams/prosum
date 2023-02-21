@@ -1,10 +1,12 @@
 import type { ReactElement, ReactNode } from "react";
 import type { AppProps } from "next/app";
 import type { NextPage } from "next";
+import { QueryClient, QueryClientProvider } from "react-query";
 import { Poppins } from "@next/font/google";
 
 import "../styles/globals.css";
 
+const queryClient = new QueryClient();
 const poppins = Poppins({ weight: ["400", "500", "700"] });
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -20,7 +22,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <main className={poppins.className}>
-      {getLayout(<Component {...pageProps} />)}
+      {getLayout(
+        <QueryClientProvider client={queryClient}>
+          <Component {...pageProps} />
+        </QueryClientProvider>
+      )}
     </main>
   );
 }

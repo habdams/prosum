@@ -8,11 +8,11 @@ import styles from "./Accordion.module.css";
 
 const c = classNames.bind(styles);
 
-type AccordionProp = {
+export type AccordionProp = {
   tasks: [];
 };
 
-type AccordionItemProps = {
+export type AccordionItemProps = {
   id?: number;
   summary: string;
   body: string;
