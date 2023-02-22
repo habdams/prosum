@@ -29,7 +29,7 @@ type ProjectPropType = {
 };
 
 export type ProjectProp = {
-  project: ProjectPropType[];
+  project: [];
 };
 
 export const getStaticPaths = async () => {
@@ -50,24 +50,24 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context: PathProp) => {
   const id = context.params.id;
-  const res = await axios.get(
-    `https://mockend.com/habdams/prosum/tasks?projectId_eq${id}`
+  const task = await axios.get(
+    `https://mockend.com/habdams/prosum/tasks?projectId_eq=${id}`
   );
-
-  const res2 = await axios.get(
-    `https://mockend.com/habdams/prosum/projects?id_eq=${id}`
+  const project = await axios.get(
+    `https://mockend.com/habdams/prosum/project?id_eq=${id}`
   );
-
-  const project = await res2.data;
-  const data = await res.data;
+  const responses = await Promise.all([task, project]);
 
   return {
-    props: { tasks: data, project: project },
+    props: {
+      tasks: responses[0].data,
+      project: responses[1].data,
+    },
+    revalidate: 1,
   };
 };
 
-
-function Details({ project }: ProjectProp) {
+function Details({ tasks, project }: any) {
   const [open, setOpen] = React.useState(false);
   const {
     register,
