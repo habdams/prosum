@@ -32,17 +32,33 @@ const fetchProjects = async () => {
 };
 
 export default function Projects() {
-  const { data, status } = useQuery("projects", fetchProjects);
-
+  const { data: projects, status } = useQuery("projects", fetchProjects);
   const [open, setOpen] = React.useState(false);
+
+  // const projects = status === "success" ? data : [];
+  // TODO: Parse data(use data.map) directly in the component below when you have a real server.
+  const [iProjects, setProjects] = React.useState(projects);
+
   const {
     register,
     setValue,
+    getValues,
     handleSubmit,
     formState: { errors },
   } = useForm<ProjectFormData>();
 
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit = handleSubmit((data) => {
+    const newProject = {
+      id: getValues("name").length,
+      name: getValues("name"),
+      begin: getValues("start"),
+      deadline: getValues("end"),
+      status: "ongoing",
+      link: "www.pop.link",
+    };
+
+    setProjects([...iProjects, newProject]);
+  });
 
   return (
     <section className={c("main")}>
@@ -111,7 +127,7 @@ export default function Projects() {
       </section>
 
       <section className={c("projects")}>
-        {data?.map((project: ProjectItemProps) => (
+        {iProjects?.map((project: ProjectItemProps) => (
           <Link
             href={`projects/${project.id}`}
             key={"#" + project.id + project.name}
