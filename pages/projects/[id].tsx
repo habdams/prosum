@@ -69,14 +69,28 @@ export const getStaticProps = async (context: PathProp) => {
 
 function Details({ tasks, project }: any) {
   const [open, setOpen] = React.useState(false);
+  const [iTasks, setTasks] = React.useState(tasks);
+
   const {
     register,
     setValue,
+    getValues,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = handleSubmit((data) => console.log(data));
+  const onSubmit = handleSubmit((data) => {
+    console.log(data);
+
+    const newTask = {
+      body: getValues("task.summary"),
+      summary: getValues("task.body"),
+      id: getValues("task.body").length + 1,
+      projectId: getValues("task.body").length + 4,
+    };
+    setTasks([...iTasks, newTask]);
+    setValue("task", " ");
+  });
 
   return (
     <section className={c("details")}>
@@ -141,14 +155,14 @@ function Details({ tasks, project }: any) {
                 <form className={c("form")} onSubmit={onSubmit}>
                   <div className={c("nameG")}>
                     <label htmlFor="name">Main Highlight</label>
-                    <input {...register("task")} placeholder="One liner" />
+                    <input {...register("task.body")} placeholder="One liner" />
                   </div>
 
                   <div className={c("insightG")}>
                     <label htmlFor="more">Add more details</label>
 
                     <textarea
-                      {...register("start")}
+                      {...register("task.summary")}
                       placeholder="Give more insights..."
                     />
                   </div>
@@ -172,7 +186,7 @@ function Details({ tasks, project }: any) {
         </section>
 
         <section>
-          <Accordion tasks={tasks} />
+          <Accordion tasks={iTasks} />
         </section>
       </section>
     </section>
