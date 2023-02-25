@@ -23,6 +23,27 @@
   font-size: 2rem;
 }
 
+.demoLink {
+  background: #ec009c;
+  color: var(--gray1);
+  padding: 12px 24px;
+  border: transparent;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  box-shadow: 7px 6px 28px 1px #adadad;
+  cursor: pointer;
+  transition: 0.5s all;
+}
+
+.demoLink:hover {
+  background: #ce028a;
+}
+
+.demoLink:active {
+  transform: scale(0.8);
+  box-shadow: 3px 2px 22px 1px #9b9b9b;
+}
+
 .projectLoader {
   display: flex;
   flex-direction: column;

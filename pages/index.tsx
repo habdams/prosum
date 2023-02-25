@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import classNames from "classnames/bind";
 
 import sumImg from "../public/images/sumImg.svg";
@@ -21,6 +22,12 @@ export default function Home() {
         <div className={c("header")}>
           <h1 className={c("heading")}>Prosum</h1>
           <p className={c("subHeading")}>Share exciting project summaries</p>
+        </div>
+
+        <div className="demo">
+          <Link href={"/projects"} className={c("demoLink")}>
+            Go to demo app
+          </Link>
         </div>
 
         <div className={styles.image}>
