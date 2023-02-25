@@ -31,14 +31,23 @@ const fetchProjects = async () => {
   return res.data;
 };
 
+const createProject = async (project) => {
+  /* post request to create the project */
+
+  /* return the data including the id here */
+}
+
 export default function Projects() {
   const { data: projects, status } = useQuery("projects", fetchProjects);
   const [open, setOpen] = React.useState(false);
 
-  // const projects = status === "success" ? data : [];
-  // TODO: Parse data(use data.map) directly in the component below when you have a real server.
-  const [iProjects, setProjects] = React.useState(projects);
-
+  const mutation = useMutation({
+    mutationFn: createProject,
+    onSuccess: data => {
+      queryClient.setQueryData('projects', (prev) => [...prev, data]);
+    }
+  })
+  
   const {
     register,
     setValue,
@@ -48,16 +57,14 @@ export default function Projects() {
   } = useForm<ProjectFormData>();
 
   const onSubmit = handleSubmit((data) => {
-    const newProject = {
+    mutation.mutate({
       id: getValues("name").length,
       name: getValues("name"),
       begin: getValues("start"),
       deadline: getValues("end"),
       status: "ongoing",
       link: "www.pop.link",
-    };
-
-    setProjects([...iProjects, newProject]);
+    });
   });
 
   return (
@@ -127,7 +134,7 @@ export default function Projects() {
       </section>
 
       <section className={c("projects")}>
-        {iProjects?.map((project: ProjectItemProps) => (
+        {projects?.map((project: ProjectItemProps) => (
           <Link
             href={`projects/${project.id}`}
             key={"#" + project.id + project.name}
