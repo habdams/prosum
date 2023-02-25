@@ -18,6 +18,11 @@ type PathProp = {
   params: { id: string };
 };
 
+type Task = {
+  name: string;
+  completed: boolean;
+}
+
 type ProjectPropType = {
   id: number;
   name: string;
@@ -25,11 +30,11 @@ type ProjectPropType = {
   begin: string;
   status: string;
   description: string;
-  tasks: [];
+  tasks: Task[];
 };
 
 export type ProjectProp = {
-  project: [];
+  project: Project[];
 };
 
 export const getStaticPaths = async () => {
@@ -48,7 +53,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async (context: PathProp) => {
+export const getServerSideProps = async (context: PathProp) => {
   const id = context.params.id;
   const task = await axios.get(
     `https://mockend.com/habdams/prosum/tasks?projectId_eq=${id}`
@@ -61,13 +66,13 @@ export const getStaticProps = async (context: PathProp) => {
   return {
     props: {
       tasks: responses[0].data,
-      project: responses[1].data,
+      projects: responses[1].data,
     },
     revalidate: 1,
   };
 };
 
-function Details({ tasks, project }: any) {
+function Details({ tasks, projects }: { projects: ProjectPropType[] ) {
   const [open, setOpen] = React.useState(false);
   const {
     register,
@@ -82,19 +87,19 @@ function Details({ tasks, project }: any) {
     <section className={c("details")}>
       <header className={c("projectHeader")}>
         <Link href={"/projects"}> Go back to projects</Link>
-        {project.map((data: ProjectPropType, index: number) => (
+        {projects.map((project, index) => (
           <section key={`user-data+${index}`}>
             <h1>
-              <span className={c("id")}>#{data?.id}</span>
-              {data?.name}
+              <span className={c("id")}>#{project.id}</span>
+              {project.name}
             </h1>
 
-            <p>{data?.description}</p>
+            <p>{project.description}</p>
             <section className={c("projectDates")}>
               <p>
                 Start:
                 <span className={c("dates")}>
-                  {new Date(data?.begin).toLocaleString("en-US", {
+                  {new Date(project?.begin).toLocaleString("en-US", {
                     dateStyle: "medium",
                   })}
                 </span>
@@ -103,7 +108,7 @@ function Details({ tasks, project }: any) {
               <p>
                 Deadline:
                 <span className={c("dates")}>
-                  {new Date(data?.deadline).toLocaleString("en-US", {
+                  {new Date(project?.deadline).toLocaleString("en-US", {
                     dateStyle: "medium",
                   })}
                 </span>
