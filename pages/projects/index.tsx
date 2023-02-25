@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import axios from "axios";
 import { useQuery } from "react-query";
-import { Plus, XCircle, Trophy, Rectangle } from "phosphor-react";
+import { Plus, XCircle, Trophy, Rectangle, Spinner } from "phosphor-react";
 import classNames from "classnames/bind";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useForm } from "react-hook-form";
@@ -23,16 +23,44 @@ type ProjectFormData = {
   end: string;
 };
 
-const fetchProjects = async () => {
+const fetchProjects = async (user_id = "1":string) => {
   const res = await axios.get(
-    "https://mockend.com/habdams/prosum/projects?userID_eq=1"
+    `https://mockend.com/habdams/prosum/projects?userID_eq=${user_id}`
   );
 
   return res.data;
 };
 
+const ProjectList = () => {
+  return (<section className={c("projects")}>
+    { projects.map((project: ProjectItemProps) => (
+            <Link
+              href={`projects/${project.id}`}
+              key={"#" + project.id + project.name}
+            >
+              <ProjectItem
+                id={project.id}
+                name={project.name}
+                begin={project.begin}
+                deadline={project.deadline}
+                status={project.status}
+                link="www.cpylink.com"
+              />
+            </Link>
+          ))
+        }
+   </section>)
+}
+
 export default function Projects() {
-  const { data, status } = useQuery("projects", fetchProjects);
+  //   const user = useAuth();
+  
+  const { data: projects, error: projectsError, isLoading, isSuccess, isError } = useQuery("projects", () => fetchProjects(/* user.id */));
+
+  
+  /* for a /projects/[id] route we would cache per project 
+     const { data: project, error: projectError, isLoading, isSuccess, isError } = useQuery(["projects", id], () => fetchProject(id));
+  */
 
   const [open, setOpen] = React.useState(false);
   const {
@@ -109,24 +137,9 @@ export default function Projects() {
           </Dialog.Portal>
         </Dialog.Root>
       </section>
-
-      <section className={c("projects")}>
-        {data?.map((project: ProjectItemProps) => (
-          <Link
-            href={`projects/${project.id}`}
-            key={"#" + project.id + project.name}
-          >
-            <ProjectItem
-              id={project.id}
-              name={project.name}
-              begin={project.begin}
-              deadline={project.deadline}
-              status={project.status}
-              link="www.cpylink.com"
-            />
-          </Link>
-        ))}
-      </section>
+     { isLoading && <Spinner size={24} /> }
+     { isSuccess && <ProjectList projects={projects} /> }
+     { isError && <Error error={projectsError} /> }
     </section>
   );
 }
