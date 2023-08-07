@@ -1,0 +1,70 @@
+.access{
+    display: flex;
+    justify-content: center;
+}
+
+.heading{
+    font-size: 2.5rem;;
+    margin-bottom: 2rem;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    padding: 10rem 2rem;
+   
+}
+
+.form input{
+    padding: 12px 24px;
+    border: 1px solid #a7a5a5;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+}
+
+.button{
+    background: #ec009c;
+    color: var(--gray1);
+    margin-top:1rem;
+    text-align: center;
+    padding: 12px 24px;
+    border: transparent;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    box-shadow: 7px 6px 28px 1px #adadad;
+    cursor: pointer;
+    transition: 0.5s all;
+}
+
+.button:hover {
+    background: #ce028a;
+  }
+  
+  .button:active {
+    transform: scale(0.8);
+    box-shadow: 3px 2px 22px 1px #9b9b9b;
+  }
+
+.option{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 2rem;
+}
+
+.image{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: flex-start;
+    /* width: 50%; */
+}
+
+.sideImage{ 
+    width: 450px; 
+    background: url("https://images.unsplash.com/photo-1586473219010-2ffc57b0d282?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80");
+    height: 20vh;
+
+}

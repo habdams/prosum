@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import classNames from "classnames/bind";
 
+import { Navbar } from "../components/Navbar/Navbar";
+
 import sumImg from "../public/images/sumImg.svg";
 
 import styles from "../styles/Home.module.css";
@@ -18,6 +20,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Navbar />
       <main className={c("main")}>
         <div className={c("header")}>
           <h1 className={c("heading")}>Prosum</h1>

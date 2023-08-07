@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import axios from "axios";
 import { useQuery } from "react-query";
@@ -39,6 +39,10 @@ export default function Projects() {
   // TODO: Parse data(use data.map) directly in the component below when you have a real server.
   const [iProjects, setProjects] = React.useState(projects);
 
+  // useEffect(()=>{
+  //     setProjects()
+  // },[])
+
   const {
     register,
     setValue,
@@ -47,7 +51,7 @@ export default function Projects() {
     formState: { errors },
   } = useForm<ProjectFormData>();
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit(() => {
     const newProject = {
       id: getValues("name").length,
       name: getValues("name"),
@@ -127,7 +131,7 @@ export default function Projects() {
       </section>
 
       <section className={c("projects")}>
-        {iProjects?.map((project: ProjectItemProps) => (
+        {projects?.map((project: ProjectItemProps) => (
           <Link
             href={`projects/${project.id}`}
             key={"#" + project.id + project.name}
